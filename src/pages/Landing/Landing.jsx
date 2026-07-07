@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import HowItWorks from "../../components/common/HowItWorks";
+import CTASection from "../../components/common/CTASection";
 import LiveDemo from "../../components/common/LiveDemo";
 import {
   Bot,
@@ -270,6 +271,7 @@ export default function Landing() {
       </section>
       <HowItWorks />
       <LiveDemo />
+      <CTASection />
 
     </div>
   );
