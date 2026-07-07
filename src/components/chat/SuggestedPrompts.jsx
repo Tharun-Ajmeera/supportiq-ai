@@ -9,12 +9,15 @@ export default function SuggestedPrompts() {
   return (
     <div className="mb-8">
 
-      <p className="mb-4 text-gray-400">
-        Suggested Prompts
+      <h2 className="text-3xl font-bold mb-3">
+        👋 Welcome to SupportIQ AI
+      </h2>
+
+      <p className="text-gray-400 mb-6">
+        Try one of these common support requests.
       </p>
 
       <div className="flex flex-wrap gap-3">
-
         {prompts.map((prompt) => (
           <button
             key={prompt}
@@ -23,7 +26,6 @@ export default function SuggestedPrompts() {
             {prompt}
           </button>
         ))}
-
       </div>
 
     </div>

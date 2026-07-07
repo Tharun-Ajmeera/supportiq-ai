@@ -1,10 +1,14 @@
+import { Bot } from "lucide-react";
+
 export default function TypingIndicator() {
   return (
-    <div className="flex items-center gap-3 mt-6">
+    <div className="flex gap-4 mb-8">
 
-      <div className="h-10 w-10 rounded-full bg-gray-700"></div>
+      <div className="flex h-11 w-11 items-center justify-center rounded-full bg-gray-700">
+        <Bot size={18} />
+      </div>
 
-      <div className="rounded-2xl bg-[#1F2937] px-5 py-4">
+      <div className="rounded-2xl bg-[#1F2937] px-6 py-5">
 
         <div className="flex gap-2">
 
@@ -12,12 +16,12 @@ export default function TypingIndicator() {
 
           <span
             className="h-2 w-2 rounded-full bg-gray-400 animate-bounce"
-            style={{ animationDelay: "0.2s" }}
+            style={{ animationDelay: "0.15s" }}
           ></span>
 
           <span
             className="h-2 w-2 rounded-full bg-gray-400 animate-bounce"
-            style={{ animationDelay: "0.4s" }}
+            style={{ animationDelay: "0.3s" }}
           ></span>
 
         </div>

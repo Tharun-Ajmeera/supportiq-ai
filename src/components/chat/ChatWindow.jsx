@@ -1,28 +1,31 @@
+import { useEffect, useRef } from "react";
+
 import MessageBubble from "./MessageBubble";
-import SuggestedPrompts from "./SuggestedPrompts";
 import TypingIndicator from "./TypingIndicator";
+import EmptyState from "./EmptyState";
 
-const messages = [
-  {
-    id: 1,
-    sender: "user",
-    text: "Hello, I need a refund for my recent order.",
-    time: "10:30 AM",
-  },
-  {
-    id: 2,
-    sender: "ai",
-    text:
-      "Sure! Please provide your Order ID. I'll help you process the refund immediately.",
-    time: "10:30 AM",
-  },
-];
+export default function ChatWindow({
+  messages,
+  loading,
+}) {
+  const bottomRef = useRef(null);
 
-export default function ChatWindow() {
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({
+      behavior: "smooth",
+    });
+  }, [messages, loading]);
+
+  if (messages.length === 0) {
+    return (
+      <div className="flex-1 bg-[#0B1120] p-8">
+        <EmptyState />
+      </div>
+    );
+  }
+
   return (
     <div className="flex-1 overflow-y-auto bg-[#0B1120] p-8">
-
-      <SuggestedPrompts />
 
       {messages.map((message) => (
         <MessageBubble
@@ -31,7 +34,9 @@ export default function ChatWindow() {
         />
       ))}
 
-      <TypingIndicator />
+      {loading && <TypingIndicator />}
+
+      <div ref={bottomRef}></div>
 
     </div>
   );

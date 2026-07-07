@@ -1,6 +1,11 @@
-import { Plus, MessageSquare } from "lucide-react";
+import {
+  Plus,
+  MessageSquare,
+  Trash2,
+  Search,
+} from "lucide-react";
 
-const chats = [
+const todayChats = [
   {
     id: 1,
     title: "Refund Request",
@@ -11,21 +16,30 @@ const chats = [
   },
   {
     id: 3,
-    title: "Order Tracking",
+    title: "Track Order",
   },
+];
+
+const yesterdayChats = [
   {
     id: 4,
-    title: "Delivery Issue",
+    title: "Delivery Delay",
+  },
+  {
+    id: 5,
+    title: "Login Issue",
   },
 ];
 
 export default function ChatSidebar() {
   return (
-    <aside className="w-72 border-r border-gray-800 bg-[#111827] flex flex-col">
+    <aside className="flex w-80 flex-col border-r border-gray-800 bg-[#111827]">
 
-      <div className="p-5">
+      {/* Header */}
 
-        <button className="w-full flex items-center justify-center gap-2 rounded-xl bg-blue-600 py-3 font-semibold hover:bg-blue-700 transition">
+      <div className="border-b border-gray-800 p-5">
+
+        <button className="flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 py-3 font-semibold transition hover:bg-blue-700">
 
           <Plus size={18} />
 
@@ -35,33 +49,99 @@ export default function ChatSidebar() {
 
       </div>
 
-      <div className="px-5 pb-3">
+      {/* Search */}
 
-        <p className="text-xs uppercase tracking-widest text-gray-500">
-          Recent Conversations
-        </p>
+      <div className="p-5">
+
+        <div className="flex items-center gap-3 rounded-xl bg-[#1F2937] px-4 py-3">
+
+          <Search
+            size={18}
+            className="text-gray-400"
+          />
+
+          <input
+            placeholder="Search chats..."
+            className="w-full bg-transparent outline-none"
+          />
+
+        </div>
 
       </div>
 
-      <div className="flex-1 overflow-y-auto px-3">
+      {/* Chat History */}
 
-        {chats.map((chat) => (
+      <div className="flex-1 overflow-y-auto px-4">
+
+        {/* Today */}
+
+        <p className="mb-3 text-xs uppercase tracking-widest text-gray-500">
+          Today
+        </p>
+
+        {todayChats.map((chat) => (
 
           <button
             key={chat.id}
-            className="mb-2 flex w-full items-center gap-3 rounded-xl p-3 text-left hover:bg-[#1F2937] transition"
+            className="mb-2 flex w-full items-center justify-between rounded-xl p-3 transition hover:bg-[#1F2937]"
           >
 
-            <MessageSquare
-              size={18}
-              className="text-blue-400"
-            />
+            <div className="flex items-center gap-3">
 
-            <span>{chat.title}</span>
+              <MessageSquare
+                size={18}
+                className="text-blue-400"
+              />
+
+              <span>{chat.title}</span>
+
+            </div>
 
           </button>
 
         ))}
+
+        {/* Yesterday */}
+
+        <p className="mb-3 mt-8 text-xs uppercase tracking-widest text-gray-500">
+          Yesterday
+        </p>
+
+        {yesterdayChats.map((chat) => (
+
+          <button
+            key={chat.id}
+            className="mb-2 flex w-full items-center justify-between rounded-xl p-3 transition hover:bg-[#1F2937]"
+          >
+
+            <div className="flex items-center gap-3">
+
+              <MessageSquare
+                size={18}
+                className="text-gray-400"
+              />
+
+              <span>{chat.title}</span>
+
+            </div>
+
+          </button>
+
+        ))}
+
+      </div>
+
+      {/* Footer */}
+
+      <div className="border-t border-gray-800 p-5">
+
+        <button className="flex w-full items-center justify-center gap-2 rounded-xl border border-red-500 py-3 text-red-400 transition hover:bg-red-500 hover:text-white">
+
+          <Trash2 size={18} />
+
+          Clear History
+
+        </button>
 
       </div>
 
