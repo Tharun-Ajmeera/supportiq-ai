@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import HowItWorks from "../../components/common/HowItWorks";
+import LiveDemo from "../../components/common/LiveDemo";
 import {
   Bot,
   MessageSquare,
@@ -268,6 +269,7 @@ export default function Landing() {
 
       </section>
       <HowItWorks />
+      <LiveDemo />
 
     </div>
   );
