@@ -1,9 +1,15 @@
 import MainLayout from "../../components/layout/MainLayout";
+import DashboardHeader from "../../components/dashboard/DashboardHeader";
+import StatsGrid from "../../components/dashboard/StatsGrid";
 
 export default function Dashboard() {
   return (
     <MainLayout>
-      <h1 className="text-4xl font-bold">Dashboard</h1>
+
+      <DashboardHeader />
+
+      <StatsGrid />
+
     </MainLayout>
   );
 }
