@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import HowItWorks from "../../components/common/HowItWorks";
 import CTASection from "../../components/common/CTASection";
 import LiveDemo from "../../components/common/LiveDemo";
+import Footer from "../../components/common/Footer";
 import {
   Bot,
   MessageSquare,
@@ -272,6 +273,7 @@ export default function Landing() {
       <HowItWorks />
       <LiveDemo />
       <CTASection />
+      <Footer />
 
     </div>
   );
