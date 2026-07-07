@@ -1,18 +1,37 @@
+import MessageBubble from "./MessageBubble";
+import SuggestedPrompts from "./SuggestedPrompts";
+import TypingIndicator from "./TypingIndicator";
+
+const messages = [
+  {
+    id: 1,
+    sender: "user",
+    text: "Hello, I need a refund for my recent order.",
+    time: "10:30 AM",
+  },
+  {
+    id: 2,
+    sender: "ai",
+    text:
+      "Sure! Please provide your Order ID. I'll help you process the refund immediately.",
+    time: "10:30 AM",
+  },
+];
+
 export default function ChatWindow() {
   return (
-    <div className="flex-1 flex items-center justify-center bg-[#0B1120]">
+    <div className="flex-1 overflow-y-auto bg-[#0B1120] p-8">
 
-      <div className="text-center">
+      <SuggestedPrompts />
 
-        <h2 className="text-3xl font-bold">
-          👋 Welcome to SupportIQ AI
-        </h2>
+      {messages.map((message) => (
+        <MessageBubble
+          key={message.id}
+          message={message}
+        />
+      ))}
 
-        <p className="mt-4 text-gray-400">
-          Start a conversation by typing below.
-        </p>
-
-      </div>
+      <TypingIndicator />
 
     </div>
   );
